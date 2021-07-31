@@ -9,7 +9,9 @@
       :root {
         --foreground: rgb(26, 32, 44);
         --background: rgb(253, 248, 246);
-        --highlight: rgb(191, 71, 34);
+        --secondaryBg: hsl(0, 0%, 100%);
+        --highlight-1: rgb(191, 71, 34);
+        --highlight-2: rgb(220, 94, 56);
         --space-1: 0.25rem;
         --space-2: 0.5rem;
         --space-3: 0.75rem;
@@ -26,8 +28,11 @@
       }
       @media (prefers-color-scheme: dark) {
         :root {
-          --foreground: hsl(0, 0%, 100%);
           --background: hsl(250, 24%, 9%);
+          --foreground: hsl(0, 0%, 100%);
+          --secondaryBg: hsl(250, 21%, 11%);
+          --highlight-1: rgb(191, 71, 34);
+          --highlight-2: rgb(220, 94, 56);
         }
       }
 
@@ -44,7 +49,11 @@
         font-weight: inherit;
       }
       a {
-        color: var(--highlight);
+        color: var(--highlight-1);
+        text-decoration-thickness: 2px;
+      }
+      a:hover {
+        color: var(--highlight-2);
       }
 
       body {
@@ -52,6 +61,9 @@
           "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         color: var(--foreground);
         background-color: var(--background);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
       }
 
       /* Social */
@@ -68,6 +80,7 @@
       /* Content */
       .content {
         padding: 0 var(--space-5);
+        flex-grow: 1;
       }
 
       /* Intro */
@@ -84,21 +97,31 @@
       }
       .intro-instructions {
         font-size: var(--space-5);
-        font-weight: 700;
+        font-weight: 400;
         line-height: var(--space-7);
       }
 
       /* Resources */
       .resources {
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 56rem;
+        margin: auto;
         gap: var(--space-4);
+        justify-content: center;
       }
       .resource {
-        background: var(--highlight);
-        color: var(--background);
+        background-color: var(--secondaryBg);
+        flex-basis: 22rem;
         padding: var(--space-6);
         border-radius: var(--space-1);
+        border: 2px solid;
+        border-color: var(--highlight-1);
         position: relative;
+      }
+      .resource:hover {
+        color: var(--highlight-2);
+        border-color: var(--highlight-2);
       }
       .resource-link {
         position: absolute;
