@@ -30,49 +30,97 @@
         }
       }
 
-      body {
+      /* Resets */
+      body,
+      h1,
+      h2,
+      p {
         margin: 0;
+      }
+      h1,
+      h2 {
+        font-size: inherit;
+        font-weight: inherit;
+      }
+      a {
+        color: inherit;
+      }
+
+      body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         color: var(--foreground);
         background-color: var(--background);
       }
 
-      a {
-        color: var(--foreground);
-      }
-
       /* Social */
       .social {
         display: flex;
-        gap: var(--space-1);
+        gap: var(--space-2);
+        padding: var(--space-4) var(--space-5);
+        justify-content: center;
       }
       .social-link {
         width: var(--space-6);
       }
 
+      /* Content */
+      .content {
+        padding: 0 var(--space-5);
+      }
+
       /* Intro */
       .intro {
+        text-align: center;
+        margin-top: var(--space-12);
+        margin-bottom: var(--space-12);
       }
-      .intro-welcome {
-      }
-      .intro-title {
+      .intro-heading {
+        margin-bottom: var(--space-4);
+        font-size: var(--space-12);
+        font-weight: 700;
+        line-height: 1;
       }
       .intro-instructions {
+        font-size: var(--space-5);
+        font-weight: 700;
+        line-height: var(--space-7);
       }
 
       /* Resources */
       .resources {
+        display: grid;
+        gap: var(--space-4);
+      }
+      .resource {
+        padding: var(--space-6);
+        border: 2px solid;
+        border-radius: var(--space-1);
+        position: relative;
       }
       .resource-link {
+        position: absolute;
+        inset: 0;
       }
-      .resource-resource-title {
+      .resource-title {
+        font-size: var(--space-5);
+        line-height: 1;
+        font-weight: 700;
+        margin-bottom: var(--space-2);
       }
       .resource-description {
+        font-weight: 400;
+        font-size: var(--space-4);
+        line-height: var(--space-6);
       }
 
-      /* Release */
-      .release-link {
+      /* Footer */
+      .footer {
+        text-align: center;
+        font-weight: 400;
+        padding: var(--space-5);
+        font-size: var(--space-4);
+        line-height: var(--space-6);
       }
     </style>
   </head>
@@ -135,69 +183,71 @@
         </svg>
       </a>
     </div>
-    <div class="intro">
-      <h1>
-        <span class="intro-welcome">Welcome to</span>
-        <span class="intro-title">RedwoodJS</span>
-      </h1>
-      <p class="intro-instructions">
-        You're seeing this because you don't have any pages yet!<br />
-        <a
-          href="https://redwoodjs.com/docs/cli-commands#generate-page"
-          target="_blank"
-          >Generate a new page</a
-        >
-        or check out some resources below.
-      </p>
-    </div>
-    <div class="resources">
-      <a
-        class="resource-link"
-        href="https://redwoodjs.com/docs/introduction"
-        target="_blank"
-      >
-        <h2 className="resource-title">Docs</h2>
-        <p className="resource-description">
-          Find in-depth information about Redwood features and API.
+    <main class="content">
+      <div class="intro">
+        <h1 class="intro-heading">Welcome to RedwoodJS</h1>
+        <p class="intro-instructions">
+          You're seeing this because you don't have any pages yet.<br />
+          <a
+            href="https://redwoodjs.com/docs/cli-commands#generate-page"
+            target="_blank"
+            >Generate a new page</a
+          >
+          or check out some resources below.
         </p>
+      </div>
+      <div class="resources">
+        <div class="resource">
+          <a
+            class="resource-link"
+            href="https://redwoodjs.com/docs/introduction"
+            target="_blank"
+          ></a>
+          <h2 class="resource-title">Docs</h2>
+          <p class="resource-description">
+            Find in-depth information about Redwood features and API.
+          </p>
+        </div>
+        <div class="resource">
+          <a
+            class="resource-link"
+            href="https://github.com/redwoodjs/example-blog"
+            target="_blank"
+          ></a>
+          <h2 class="resource-title">Examples</h2>
+          <p class="resource-description">
+            Check out an example blog built with Redwood.
+          </p>
+        </div>
+        <div class="resource">
+          <a
+            class="resource-link"
+            href="https://learn.redwoodjs.com/docs/tutorial/welcome-to-redwood/"
+            target="_blank"
+          ></a>
+          <h2 class="resource-title">Tutorial</h2>
+          <p class="resource-description">
+            Start here to learn how to build full-stack apps with Redwood.
+          </p>
+        </div>
+        <div class="resource">
+          <a
+            class="resource-link"
+            href="https://github.com/redwoodjs/redwood/blob/main/CONTRIBUTING.md"
+            target="_blank"
+          ></a>
+          <h2 class="resource-title">Contribute</h2>
+          <p class="resource-description">
+            Love Redwood and want to get involved? Contribute today!
+          </p>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      RedwoodJS version
+      <a href="https://github.com/redwoodjs/redwood/releases" target="_blank">
+        v0.35.2
       </a>
-      <a
-        class="resource-link"
-        href="https://github.com/redwoodjs/example-blog"
-        target="_blank"
-      >
-        <h2 className="resource-title">Examples</h2>
-        <p className="resource-description">
-          Check out an example blog built with Redwood.
-        </p>
-      </a>
-      <a
-        class="resource-link"
-        href="https://learn.redwoodjs.com/docs/tutorial/welcome-to-redwood/"
-        target="_blank"
-      >
-        <h2 className="resource-title">Tutorial</h2>
-        <p className="resource-description">
-          Start here to learn how to build full-stack apps with Redwood.
-        </p>
-      </a>
-      <a
-        class="resource-link"
-        href="https://github.com/redwoodjs/redwood/blob/main/CONTRIBUTING.md"
-        target="_blank"
-      >
-        <h2 className="resource-title">Contribute</h2>
-        <p className="resource-description">
-          Love Redwood and want to get involved? Contribute today!
-        </p>
-      </a>
-    </div>
-    <a
-      className="release-link"
-      href="https://github.com/redwoodjs/redwood/releases"
-      target="_blank"
-    >
-      v0.35.2
-    </a>
+    </footer>
   </body>
 </html>
